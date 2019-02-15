@@ -1,0 +1,17 @@
+App\Entity\User:
+  user (template):
+    firstname: <firstName()>
+    lastname: <lastName()>
+    email: <email()>
+    adress: <streetAddress()>
+    country: <countryCode()>
+    subscription: '@subscription_*'
+  user_{1} (extends user):
+    roles: [ROLE_ADMIN]
+    apiKey: 72312
+  user_{2} (extends user):
+    apiKey: 93324
+  user_{3} (extends user):
+    apiKey: 99445
+  user_{4..10} (extends user):
+

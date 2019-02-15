@@ -1,0 +1,16 @@
+nelmio_api_doc:
+    models: { use_jms: false }
+    documentation:
+        info:
+            title: Budjet Project Pro
+            description: API for Budjet Project Pro.
+            version: 1.0.0
+        securityDefinitions:
+            api_key:
+                type: apiKey
+                description: "Enter you Api Key"
+                name: X-AUTH-TOKEN
+                in: header
+    areas: # to filter documented areas
+        path_patterns:
+        - ^/api(?!/doc$) # Accepts routes under /api except /api/doc

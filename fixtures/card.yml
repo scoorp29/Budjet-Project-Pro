@@ -1,0 +1,11 @@
+App\Entity\Card:
+  card (template):
+    name: <lastName()>
+    creditCardType: <creditCardType()>
+    creditCardNumber: <numberBetween(10000000, 20000000)>
+    currencyCode: <currencyCode()>
+    value: <numberBetween(0, 100000)>
+  card_{1} (extends card):
+    user: '@user_1'
+  card_{2..10} (extends card):
+    user: '@user_*'
