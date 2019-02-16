@@ -257,6 +257,6 @@ class SubscriptionControllerTest extends WebTestCase
         );
 
         $response = $client->getResponse();
-        $this->assertEquals(500, $response->getStatusCode());
+        $this->assertEquals(400, $response->getStatusCode());
     }
 }

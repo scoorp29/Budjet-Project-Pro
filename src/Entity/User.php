@@ -227,7 +227,7 @@ class User implements UserInterface
     public function setSubscription(?Subscription $subscription): self
     {
         if ($this->getRoles() === 'ROLE_USER') {
-           exit();
+            exit();
         }
 
         $this->subscription = $subscription;

@@ -53,6 +53,7 @@ class UsersControllerTest extends WebTestCase
 
     /**
      * @group SuccesUser
+     * @group test
      */
     public function testPatchApiUserProfile()
     {
@@ -64,12 +65,12 @@ class UsersControllerTest extends WebTestCase
                 'HTTP_X-AUTH-TOKEN' => '99445'
             ],
             '{
-            "firstname": "NewName",
-            "lastname": "NewLastName",
-            "adress": "NewAdress",
-            "country": "FR",
+            "firstname": "NewUserName",
+            "lastname": "NewUserLastName",
+            "adress": "NewUserAdress",
+            "country": "NR",
             "subscription": {
-		                        "id": 4
+		                        "id": 5
 	                         }            
             }'
         );

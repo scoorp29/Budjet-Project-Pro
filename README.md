@@ -59,6 +59,11 @@ Clé Api d'Administrateur : `72312`
 
 Clé Api d'un Utilisateur : `93324`
 
+## Test
+Chaque fois avant de lancer les tests il faut régénérer les fixtures :
+```bash
+php bin/console hautelook:fixtures:load
+```
 ## Accès
 
 ##### Pour accéder à la doc de Nelmio : 

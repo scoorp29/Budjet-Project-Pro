@@ -18,7 +18,7 @@ class UsersController extends AbstractFOSRestController
     private $subscriptionManager;
     private $em;
 
-    public function __construct(ValidatorManager $validatorManager, SubscriptionManager $subscriptionManager,  EntityManagerInterface $em)
+    public function __construct(ValidatorManager $validatorManager, SubscriptionManager $subscriptionManager, EntityManagerInterface $em)
     {
         $this->validatorManager = $validatorManager;
         $this->subscriptionManager = $subscriptionManager;
@@ -97,7 +97,7 @@ class UsersController extends AbstractFOSRestController
         $subscription_id = $request->get('subscription');
         if (null !== $subscription_id) {
             $subscription = $this->subscriptionManager->find($subscription_id);
-        }else {
+        } else {
             $subscription = null;
         }
 

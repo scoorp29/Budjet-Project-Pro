@@ -176,7 +176,6 @@ class AdminController extends AbstractFOSRestController
         $verifyRole = $this->userManager->verifyUserRole($user, $role);
 
 
-
         if ($verifyRole) {
             if ($subscription == null) {
                 throw new BadRequestHttpException('User should have a subscription!', null, 400);

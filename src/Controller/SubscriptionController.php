@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Subscription;
 use App\Manager\SubscriptionManager;
+use App\Manager\UserManager;
 use App\Manager\ValidatorManager;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
@@ -12,6 +13,7 @@ use Nelmio\ApiDocBundle\Annotation\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 use Swagger\Annotations as SWG;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
@@ -223,15 +225,26 @@ class SubscriptionController extends AbstractFOSRestController
      *         ),
      *)
      */
-    public function deleteApiSubscription($id)
+    public function deleteApiSubscription($id, UserManager $userManager)
     {
-        $subscription = $this->subscriptionManager->findOneBy(['id' => $id]);
-
         $message = 'Subscription are successfully removed !';
+        $subscription = $this->subscriptionManager->findOneBy(['id' => $id]);
+        $users = $userManager->findAll();
 
-        $this->em->remove($subscription);
-        $this->em->flush();
+        foreach ($users as $user) {
+            $userSubscription = $user->getSubscription();
+            if ($userSubscription === $subscription) {
+                throw new BadRequestHttpException('You can\'t remove a subscription with existing user !', null, 400);
+            }
+        }
 
-        return $this->view($message, 204);
+        try {
+            $this->em->remove($subscription);
+            $this->em->flush();
+
+            return $this->view($subscription, 204);
+        } catch (BadRequestHttpException $e) {
+            return $this->view($e, 400);
+        }
     }
 }

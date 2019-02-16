@@ -9,6 +9,7 @@ use Symfony\Component\Serializer\Mapping\ClassDiscriminatorResolverInterface;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface;
 use Symfony\Component\Serializer\NameConverter\NameConverterInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+
 /**
  * Entity normalizer.
  */
@@ -21,13 +22,14 @@ class EntityNormalizer extends ObjectNormalizer
      * @var EntityManagerInterface
      */
     protected $entityManager;
+
     /**
      * Entity normalizer.
      *
-     * @param EntityManagerInterface              $entityManager
-     * @param ClassMetadataFactoryInterface|null  $classMetadataFactory
-     * @param NameConverterInterface|null         $nameConverter
-     * @param PropertyAccessorInterface|null      $propertyAccessor
+     * @param EntityManagerInterface $entityManager
+     * @param ClassMetadataFactoryInterface|null $classMetadataFactory
+     * @param NameConverterInterface|null $nameConverter
+     * @param PropertyAccessorInterface|null $propertyAccessor
      * @param PropertyTypeExtractorInterface|null $propertyTypeExtractor
      */
     public function __construct(
@@ -37,11 +39,13 @@ class EntityNormalizer extends ObjectNormalizer
         ?PropertyAccessorInterface $propertyAccessor = null,
         ?PropertyTypeExtractorInterface $propertyTypeExtractor = null,
         ?ClassDiscriminatorResolverInterface $classDiscriminatorResolver = null
-    ) {
+    )
+    {
         parent::__construct($classMetadataFactory, $nameConverter, $propertyAccessor, $propertyTypeExtractor, $classDiscriminatorResolver);
 
         $this->entityManager = $entityManager;
     }
+
     /**
      * {@inheritdoc}
      */
@@ -49,6 +53,7 @@ class EntityNormalizer extends ObjectNormalizer
     {
         return 0 === strpos($type, 'App\\Entity\\') && is_array($data) && isset($data[self::PRIMARY_KEY]);
     }
+
     /**
      * {@inheritdoc}
      */
