@@ -13,7 +13,7 @@ class SubscriptionControllerTest extends WebTestCase
 {
     public static function setUpBeforeClass()
     {
-        exec('php bin/console hautelook:fixtures:load --purge-with-truncate');
+        exec('php bin/console hautelook:fixtures:load --append');
 
         parent::setUpBeforeClass();
     }
@@ -231,7 +231,7 @@ class SubscriptionControllerTest extends WebTestCase
     public function testDeleteApiAdminSubscription()
     {
         $client = static::createClient();
-        $client->request('Delete', '/api/admin/subscriptions/remove/7', [], [],
+        $client->request('Delete', '/api/admin/subscriptions/remove/9', [], [],
             [
                 'HTTP_ACCEPT' => 'application/json',
                 'HTTP_X-AUTH-TOKEN' => '72312'

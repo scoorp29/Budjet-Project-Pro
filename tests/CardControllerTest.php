@@ -13,7 +13,7 @@ class CardControllerTest extends WebTestCase
 {
     public static function setUpBeforeClass()
     {
-        exec('php bin/console hautelook:fixtures:load --purge-with-truncate');
+        exec('php bin/console hautelook:fixtures:load --append');
 
         parent::setUpBeforeClass();
     }

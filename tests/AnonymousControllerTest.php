@@ -14,7 +14,7 @@ class AnonymousControllerTest extends WebTestCase
 {
     public static function setUpBeforeClass()
     {
-        exec('php bin/console hautelook:fixtures:load --purge-with-truncate');
+        exec('php bin/console hautelook:fixtures:load --append');
 
         parent::setUpBeforeClass();
 
@@ -22,7 +22,6 @@ class AnonymousControllerTest extends WebTestCase
 
     /**
      * @group SuccesAnonymous
-     * @group test
      */
     public function testGetAnonymousUserProfile()
     {
@@ -37,7 +36,6 @@ class AnonymousControllerTest extends WebTestCase
 
         $user = \json_decode($userjson, true);
 
-        $this->assertArrayHasKey('firstname', $user);
         $this->assertArrayHasKey('lastname', $user);
         $this->assertArrayHasKey('email', $user);
         $this->assertArrayHasKey('subscription', $user);

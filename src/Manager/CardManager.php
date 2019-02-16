@@ -24,4 +24,10 @@ class CardManager
     public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null){
         return $this->cardRepository->findBy($criteria, $orderBy, $limit, $offset);
     }
+
+
+    public function findOneBy(array $criteria, array $orderBy = null){
+        return $this->cardRepository->findOneBy($criteria, $orderBy);
+    }
+
 }

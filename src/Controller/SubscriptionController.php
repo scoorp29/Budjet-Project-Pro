@@ -225,7 +225,7 @@ class SubscriptionController extends AbstractFOSRestController
      */
     public function deleteApiSubscription($id)
     {
-        $subscription = $this->subscriptionManager->find($id);
+        $subscription = $this->subscriptionManager->findOneBy(['id' => $id]);
 
         $message = 'Subscription are successfully removed !';
 
