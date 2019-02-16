@@ -11,12 +11,12 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class SubscriptionControllerTest extends WebTestCase
 {
-    public static function setUpBeforeClass()
-    {
-        exec('php bin/console hautelook:fixtures:load --append');
-
-        parent::setUpBeforeClass();
-    }
+//    public static function setUpBeforeClass()
+//    {
+//        exec('php bin/console hautelook:fixtures:load --append');
+//
+//        parent::setUpBeforeClass();
+//    }
 
     /*Get One Subscription*/
     /**

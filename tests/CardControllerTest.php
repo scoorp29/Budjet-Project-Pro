@@ -11,12 +11,12 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class CardControllerTest extends WebTestCase
 {
-    public static function setUpBeforeClass()
-    {
-        exec('php bin/console hautelook:fixtures:load --append');
-
-        parent::setUpBeforeClass();
-    }
+//    public static function setUpBeforeClass()
+//    {
+//        exec('php bin/console hautelook:fixtures:load --append');
+//
+//        parent::setUpBeforeClass();
+//    }
 
     /*Test One Card*/
     /**
@@ -236,7 +236,7 @@ class CardControllerTest extends WebTestCase
     public function testGetApiUserOneCard()
     {
         $client = static::createClient();
-        $client->request('GET', '/api/user/cards/6', [], [],
+        $client->request('GET', '/api/user/cards/5', [], [],
             [
                 'HTTP_ACCEPT' => 'application/json',
                 'HTTP_X-AUTH-TOKEN' => '99445'
@@ -247,7 +247,6 @@ class CardControllerTest extends WebTestCase
         $content = $response->getContent();
 
         $card = \json_decode($content, true);
-
         $this->assertArrayHasKey('id', $card);
         $this->assertArrayHasKey('name', $card);
         $this->assertArrayHasKey('creditCardType', $card);
@@ -296,7 +295,7 @@ class CardControllerTest extends WebTestCase
         $this->assertJson($content);
 
         $arrayContent = \json_decode($content, true);
-        $this->assertCount(1, $arrayContent);
+        $this->assertCount(2, $arrayContent);
     }
 
     /*Test Add new Card for User*/

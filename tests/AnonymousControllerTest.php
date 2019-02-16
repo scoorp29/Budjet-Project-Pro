@@ -12,13 +12,13 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class AnonymousControllerTest extends WebTestCase
 {
-    public static function setUpBeforeClass()
-    {
-        exec('php bin/console hautelook:fixtures:load --append');
-
-        parent::setUpBeforeClass();
-
-    }
+//    public static function setUpBeforeClass()
+//    {
+//        exec('php bin/console hautelook:fixtures:load --append');
+//
+//        parent::setUpBeforeClass();
+//
+//    }
 
     /**
      * @group SuccesAnonymous

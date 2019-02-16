@@ -102,7 +102,7 @@ class CardController extends AbstractFOSRestController
     public function getApiAllAdminCards()
     {
         $user = $this->getUser();
-        $cards = $this->cardManager->findOneBy(['user' => $user]);
+        $cards = $this->cardManager->findBy(['user' => $user]);
 
         return $this->view($cards, 200);
     }
@@ -328,7 +328,8 @@ class CardController extends AbstractFOSRestController
     public function getApiUserOneCard($id)
     {
         $user = $this->getUser();
-        $userCard = $this->cardManager->findOneBy(['id' => $id, 'user' => $user]);
+        $card = $this->cardManager->findOneBy(['id' => $id]);
+        $userCard = $card->getUser();
 
         //A user can see the credit cards from other users
         if ($user !== $userCard) {
@@ -336,7 +337,7 @@ class CardController extends AbstractFOSRestController
         }
 
         try {
-            return $this->view($userCard, 200);
+            return $this->view($card, 200);
         } catch (BadRequestHttpException $e) {
             return $this->view($e, 400);
         }

@@ -96,7 +96,7 @@ class SubscriptionController extends AbstractFOSRestController
      */
     public function getApiAdminOneSubscription($id)
     {
-        $subscription = $this->subscriptionManager->find($id);
+        $subscription = $this->subscriptionManager->findOneBy(['id' => $id]);
 
         return $this->view($subscription, 200);
     }
