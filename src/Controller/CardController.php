@@ -324,9 +324,8 @@ class CardController extends AbstractFOSRestController
      *         ),
      *)
      */
-    public function getApiUserOneCard($id)
+    public function getApiUserOneCard(Card $card)
     {
-        $card = $this->cardManager->find($id);
         $user = $this->getUser();
         $userCard = $card->getUser();
 
@@ -538,10 +537,9 @@ class CardController extends AbstractFOSRestController
      *         ),
      *)
      */
-    public function deleteApiUserCard($id)
+    public function deleteApiUserCard(Card $card)
     {
         $message = 'Card are successfully removed !';
-        $card = $this->cardManager->find($id);
         $user = $this->getUser();
         $userCard = $card->getUser();
 

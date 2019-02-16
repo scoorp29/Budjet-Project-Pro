@@ -165,10 +165,8 @@ class SubscriptionController extends AbstractFOSRestController
      *         ),
      *)
      */
-    public function patchApiAdminSubscription(ValidatorInterface $validator, Request $request, $id)
+    public function patchApiAdminSubscription(ValidatorInterface $validator, Request $request, Subscription $subscription)
     {
-        $subscription = $this->subscriptionManager->find($id);
-
         $name = $request->get('name');
         $slogan = $request->get('slogan');
         $url = $request->get('url');

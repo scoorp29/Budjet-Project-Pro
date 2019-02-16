@@ -382,7 +382,7 @@ class AdminController extends AbstractFOSRestController
         $cards = $this->cardManager->findBy(['user' => $user]);
 
         foreach ($cards as $card) {
-            $card->setUser(null);
+            $user->removeCard($card);
         }
 
         $this->em->remove($user);
