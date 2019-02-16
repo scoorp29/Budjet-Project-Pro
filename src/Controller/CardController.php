@@ -76,7 +76,7 @@ class CardController extends AbstractFOSRestController
      * @Rest\View(serializerGroups={"card"})
      * @Security(name="api_key")
      * @SWG\Get(
-     *      tags={"Card/User"},
+     *      tags={"Card/Admin"},
      *      @SWG\Response(
      *             response=200,
      *             description="Success",
