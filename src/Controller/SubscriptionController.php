@@ -165,8 +165,10 @@ class SubscriptionController extends AbstractFOSRestController
      *         ),
      *)
      */
-    public function patchApiAdminSubscription(ValidatorInterface $validator, Request $request, Subscription $subscription)
+    public function patchApiAdminSubscription(ValidatorInterface $validator, Request $request, $id)
     {
+        $subscription = $this->subscriptionManager->findOneBy(['id' => $id]);
+
         $name = $request->get('name');
         $slogan = $request->get('slogan');
         $url = $request->get('url');
@@ -221,8 +223,10 @@ class SubscriptionController extends AbstractFOSRestController
      *         ),
      *)
      */
-    public function deleteApiSubscription(Subscription $subscription)
+    public function deleteApiSubscription($id)
     {
+        $subscription = $this->subscriptionManager->find($id);
+
         $message = 'Subscription are successfully removed !';
 
         $this->em->remove($subscription);

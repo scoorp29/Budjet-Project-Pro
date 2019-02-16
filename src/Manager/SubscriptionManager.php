@@ -13,11 +13,18 @@ class SubscriptionManager
         $this->subscriptionRepository = $subscriptionRepository;
     }
 
-    public function find($id, $lockMode = null, $lockVersion = null){
+    public function find($id, $lockMode = null, $lockVersion = null)
+    {
         return $this->subscriptionRepository->find($id, $lockMode, $lockVersion);
     }
 
-    public function findAll(){
+    public function findOneBy(array $criteria, array $orderBy = null)
+    {
+        return $this->subscriptionRepository->findOneBy($criteria, $orderBy);
+    }
+
+    public function findAll()
+    {
         return $this->subscriptionRepository->findAll();
     }
 }
