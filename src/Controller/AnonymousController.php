@@ -66,7 +66,7 @@ class AnonymousController extends AbstractFOSRestController
 
     /**
      * @Rest\Get("/api/profile/{id}")
-     * @Rest\View(serializerGroups={"userlight", "subscription"})
+     * @Rest\View(serializerGroups={"userlight", "cardlight", "subscription"})
      * @SWG\Get(
      *     tags={"Anonymous"},
      *      @SWG\Response(

@@ -187,7 +187,7 @@ class CardControllerTest extends WebTestCase
     public function testPatchApiAdminAddCard()
     {
         $client = static::createClient();
-        $client->request('PATCH', '/api/admin/cards/5', [], [],
+        $client->request('PATCH', '/api/admin/cards/8', [], [],
             [
                 'HTTP_ACCEPT' => 'application/json',
                 'CONTENT_TYPE' => 'application/json',
@@ -279,7 +279,6 @@ class CardControllerTest extends WebTestCase
     /*Test All Card User*/
     /**
      * @group SuccesCard
-     * @group test
      */
     public function testGetApiUserAllCard()
     {

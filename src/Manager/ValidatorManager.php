@@ -2,16 +2,10 @@
 
 namespace App\Manager;
 
-use App\Entity\Card;
-use App\Entity\Subscription;
-use App\Entity\User;
-use App\Repository\CardRepository;
-use App\Repository\SubscriptionRepository;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Symfony\Component\HttpFoundation\Request;
 
 class ValidatorManager
 {

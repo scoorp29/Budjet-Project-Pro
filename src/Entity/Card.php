@@ -22,10 +22,6 @@ class Card
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Assert\Type(
-     *     type="string",
-     *     message="The value {{ value }} is not a valid {{ type }}."
-     * )
      * @Groups("card")
      * @Groups("cardlight")
      */

@@ -53,7 +53,6 @@ class UsersControllerTest extends WebTestCase
 
     /**
      * @group SuccesUser
-     * @group test
      */
     public function testPatchApiUserProfile()
     {
@@ -86,7 +85,6 @@ class UsersControllerTest extends WebTestCase
 
     /**
      * @group FailUser
-     * @group test
      */
     public function testFailPatchApiUserProfile()
     {

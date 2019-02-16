@@ -1,10 +1,13 @@
 sudo: required
+
 services:
-- docker
+  - docker
+
 before_install:
-- cp .env.test.dist .env
-- docker-compose up -d
-- docker-compose exec web composer install --no-interaction
-- docker-compose exec web php bin/console doctrine:schema:update --force
+  - cp .env.test.dist .env
+  - docker-compose up -d
+  - docker-compose exec web composer install --no-interaction
+  - docker-compose exec web php bin/console doctrine:schema:update --force
+
 script:
-- docker-compose exec web php bin/phpunit
+  - docker-compose exec web php bin/phpunit

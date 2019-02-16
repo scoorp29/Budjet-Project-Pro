@@ -24,10 +24,6 @@ class Subscription
     /**
      * @ORM\Column(type="string", length=191, unique=true)
      * @Assert\NotBlank
-     * @Assert\Type(
-     *     type="string",
-     *     message="The value {{ value }} is not a valid {{ type }}."
-     * )
      * @Groups("subscription")
      */
     private $name;

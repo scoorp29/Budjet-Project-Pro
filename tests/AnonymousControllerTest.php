@@ -22,6 +22,7 @@ class AnonymousControllerTest extends WebTestCase
 
     /**
      * @group SuccesAnonymous
+     * @group test
      */
     public function testGetAnonymousUserProfile()
     {
@@ -39,11 +40,8 @@ class AnonymousControllerTest extends WebTestCase
         $this->assertArrayHasKey('firstname', $user);
         $this->assertArrayHasKey('lastname', $user);
         $this->assertArrayHasKey('email', $user);
-        $this->assertArrayNotHasKey('adress', $user);
-        $this->assertArrayNotHasKey('country', $user);
-        $this->assertArrayNotHasKey('roles', $user);
-        $this->assertArrayNotHasKey('apiKey', $user);
         $this->assertArrayHasKey('subscription', $user);
+        $this->assertArrayHasKey('cards', $user);
 
         $this->assertEquals(200, $response->getStatusCode());
     }
